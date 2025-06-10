@@ -59,7 +59,7 @@ def data_normalization(train_data, train_labels, test_data, test_labels):
 
     y_mean = np.mean(train_labels)
     y_std = np.std(train_labels)
-    y_std[y_std == 0] = 1e-8
+    y_std = y_std if y_std != 0 else 1e-8
 
     # 应用到训练集和测试集
     train_data_norm = (train_data - mean) / std
